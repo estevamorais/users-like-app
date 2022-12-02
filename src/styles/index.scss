@@ -1,0 +1,12 @@
+@import "./variables";
+@import "./mixings";
+@import "./reset";
+@import "./utilities";
+
+* {
+  font-family: $font-family;
+}
+
+body {
+  background-color: $color-light;
+}
