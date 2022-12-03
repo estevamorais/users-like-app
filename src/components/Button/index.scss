@@ -1,0 +1,43 @@
+@import "../../styles/variables";
+@import "../../styles/mixings";
+
+.btn {
+  padding: 0.45rem 1.5rem;
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(#000, 0.3);
+
+  font-size: 0.975rem;
+  font-weight: 700;
+
+  border: none;
+  border-radius: $radius;
+  transition: $transition;
+
+  &:hover {
+    background-color: darken(#fff, 3%);
+  }
+
+  &.btn--sm {
+    padding: 0.365rem 1rem;
+    font-size: 0.775rem;
+  }
+
+  &.btn--info {
+    background-color: $color-info;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($color-info, 3%);
+    }
+  }
+
+  &.btn--danger {
+    background-color: $color-danger;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($color-danger, 3%);
+    }
+  }
+}
