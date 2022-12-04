@@ -1,0 +1,71 @@
+@import "../../styles/variables";
+@import "../../styles/mixings";
+
+.info-dropdown {
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+  border-radius: $radius;
+  box-shadow: $shadow;
+
+  * {
+    transition: $transition;
+  }
+
+  &.info-dropdown--active {
+    .info-dropdown__button {
+      * {
+        color: $color-danger;
+      }
+
+      ion-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.info-dropdown__title {
+  font-size: 1.3rem;
+  padding: 1.75rem 1.5rem 0;
+}
+
+.info-dropdown__items {
+  padding: 1rem 1.5rem;
+
+  li {
+    padding: 0.5rem 0;
+    font-weight: 500;
+    color: $color-secondary;
+    line-height: 1.2;
+  }
+}
+
+.info-dropdown__button {
+  padding: 1rem 1.5rem;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  cursor: pointer;
+  font-weight: 700;
+
+  background-color: transparent;
+  border: none;
+  border-top: solid 2px rgba(#000, 0.1);
+
+  &:hover {
+    background-color: darken(#fff, 3%);
+  }
+
+  * {
+    color: $color-success;
+  }
+
+  ion-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
