@@ -1,0 +1,99 @@
+@import "../../styles/variables";
+@import "../../styles/mixings";
+
+.user {
+  position: relative;
+  background-color: #fff;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  text-align: center;
+  overflow: hidden;
+}
+
+.user__image {
+  position: relative;
+  height: 11.5rem;
+  overflow: hidden;
+
+  .user__image-bg,
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+
+  .user__image-bg,
+  &:before {
+    top: 0;
+    height: 100%;
+  }
+
+  &:after {
+    bottom: 0;
+    background-color: #fff;
+    height: 2rem;
+    z-index: 1;
+  }
+
+  &:before {
+    background-color: rgba(#000, 0.3);
+  }
+}
+
+.user__image-bg {
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 160%;
+  filter: blur(8px);
+}
+
+.user__image-avatar {
+  position: relative;
+  z-index: 2;
+  top: 1rem;
+  margin: 0 auto;
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 100%;
+  border: solid 6px #fff;
+  background-color: #fff;
+  box-shadow: $shadow-sm;
+}
+
+.user__content {
+  margin-top: 0.5rem;
+  padding: 0 1rem 2.5rem;
+  position: relative;
+}
+
+.user__name,
+.user__address {
+  font-weight: 500;
+}
+
+.user__name {
+  font-size: 1.7rem;
+  margin: 0.5rem 0;
+}
+
+.user__address {
+  font-size: 1.2rem;
+}
+
+.user__next-user {
+  @include at-query($max, $medium) {
+    margin-top: 1rem;
+  }
+
+  @include at-query($min, $medium) {
+    position: absolute;
+    right: 1rem;
+    top: 0;
+  }
+}
