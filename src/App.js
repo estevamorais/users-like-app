@@ -111,7 +111,7 @@ function App() {
                 </div>
               ))}
             </div>
-            {suggested && (
+            {suggested.length > 0 && (
               <section className="app__suggested">
                 <h3 className="app__suggested-title">Suggestion 4you</h3>
                 <ul className="app__suggested-list">
