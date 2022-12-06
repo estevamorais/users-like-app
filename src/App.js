@@ -4,19 +4,18 @@ import { useEffect } from "react";
 
 import User from "./components/User";
 import InfoDropdown from "./components/InfoDropdown";
-import ItemUser from "./components/ItemUser";
 
 import { useUsersContext } from "./hooks/useUsersContext";
 import { useFetch } from "./hooks/useFetch";
 import SuggestedList from "./components/SuggestedList";
 
 function App() {
-  const { user, suggested, loading, error } = useUsersContext();
-  const { setNewReq } = useFetch();
+  const { user, loading, error } = useUsersContext();
+  const { setNewFetch } = useFetch();
 
   useEffect(() => {
-    setNewReq(true);
-  }, []);
+    setNewFetch(true);
+  }, [setNewFetch]);
 
   return (
     <div className="app">

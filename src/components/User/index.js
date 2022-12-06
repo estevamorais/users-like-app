@@ -7,7 +7,7 @@ import FollowUnfollow from "../FollowUnfollow";
 import { useFetch } from "../../hooks/useFetch";
 
 const User = ({ user, loading, error }) => {
-  const { setNewReq } = useFetch();
+  const { setNewFetch } = useFetch();
 
   return (
     <div className="user">
@@ -27,7 +27,7 @@ const User = ({ user, loading, error }) => {
         <FollowUnfollow user={user} />
         <h1 className="user__name">{`${user.first_name} ${user.last_name}`}</h1>
         <h2 className="user__address">{`${user.address.city}, ${user.address.country}`}</h2>
-        <Button className="user__next-user" action={() => setNewReq(true)}>
+        <Button className="user__next-user" action={() => setNewFetch(true)}>
           try the next one
         </Button>
       </div>

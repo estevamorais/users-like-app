@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useUsersContext } from "./useUsersContext";
 
 export const useFetch = () => {
-  const [newReq, setNewReq] = useState(false);
+  const [newFetch, setNewFetch] = useState(false);
   const { setUser, setError, setLoading } = useUsersContext();
 
   function handleGetInfo(json) {
@@ -32,7 +32,7 @@ export const useFetch = () => {
 
   useEffect(() => {
     (async () => {
-      if (newReq) {
+      if (newFetch) {
         setLoading(true);
 
         try {
@@ -49,10 +49,10 @@ export const useFetch = () => {
           setError("There was an error trying to load the data.");
         }
 
-        setNewReq(false);
+        setNewFetch(false);
       }
     })();
-  }, [newReq, setUser, setError, setLoading]);
+  }, [newFetch, setUser, setError, setLoading]);
 
-  return { setNewReq };
+  return { setNewFetch };
 };
