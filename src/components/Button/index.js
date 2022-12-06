@@ -1,10 +1,10 @@
 import "./index.scss";
 
-const Button = ({ style, action, size, className, children }) => {
+const Button = ({ type, action, size, className, children }) => {
   return (
     <>
       <button
-        className={`btn btn--${size ? size : "md"} btn--${style} ${className}`}
+        className={`btn btn--${size ? size : "md"} btn--${type} ${className}`}
         onClick={action}
       >
         {children}

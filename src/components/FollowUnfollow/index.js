@@ -46,11 +46,11 @@ const FollowUnfollow = ({ user, size }) => {
   return (
     <>
       {!containsObject(user, following) ? (
-        <Button action={handleFollowUnfollow} style="info" size={size}>
+        <Button action={handleFollowUnfollow} type="info" size={size}>
           Follow
         </Button>
       ) : (
-        <Button action={handleFollowUnfollow} style="danger" size={size}>
+        <Button action={handleFollowUnfollow} type="danger" size={size}>
           Unfollow
         </Button>
       )}
