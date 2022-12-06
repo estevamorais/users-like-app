@@ -1,3 +1,5 @@
+import { useUsersContext } from "../../hooks/useUsersContext";
+
 import Button from "../Button";
 
 const containsObject = (obj, list) => {
@@ -14,15 +16,11 @@ const spliceObject = (obj, list) => {
   return list;
 };
 
-const FollowUnfollow = ({
-  user,
-  following,
-  setFollowing,
-  suggested,
-  setSuggested,
-  size,
-}) => {
-  const handleFollowUnfollow = (user) => {
+const FollowUnfollow = ({ user, size }) => {
+  const { suggested, setSuggested, following, setFollowing } =
+    useUsersContext();
+
+  const handleFollowUnfollow = () => {
     let newFollowing = [...following];
     let newSuggested = [...suggested];
 
@@ -48,19 +46,11 @@ const FollowUnfollow = ({
   return (
     <>
       {!containsObject(user, following) ? (
-        <Button
-          action={() => handleFollowUnfollow(user)}
-          style="info"
-          size={size}
-        >
+        <Button action={handleFollowUnfollow} style="info" size={size}>
           Follow
         </Button>
       ) : (
-        <Button
-          action={() => handleFollowUnfollow(user)}
-          style="danger"
-          size={size}
-        >
+        <Button action={handleFollowUnfollow} style="danger" size={size}>
           Unfollow
         </Button>
       )}

@@ -2,8 +2,13 @@ import "./index.scss";
 
 import Button from "../Button";
 import Message from "../Message";
+import FollowUnfollow from "../FollowUnfollow";
 
-const User = ({ user, actions, nextUser, loading, error }) => {
+import { useFetch } from "../../hooks/useFetch";
+
+const User = ({ user, loading, error }) => {
+  const { setNewReq } = useFetch();
+
   return (
     <div className="user">
       <Message message={error} loading={loading} />
@@ -19,10 +24,10 @@ const User = ({ user, actions, nextUser, loading, error }) => {
         />
       </div>
       <div className="user__content">
-        {actions}
+        <FollowUnfollow user={user} />
         <h1 className="user__name">{`${user.first_name} ${user.last_name}`}</h1>
         <h2 className="user__address">{`${user.address.city}, ${user.address.country}`}</h2>
-        <Button className="user__next-user" action={nextUser}>
+        <Button className="user__next-user" action={() => setNewReq(true)}>
           try the next one
         </Button>
       </div>
