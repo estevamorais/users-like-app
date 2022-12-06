@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+@import "../../styles/mixings";
+
+.suggested-list {
+  padding: 1.5rem 0 0;
+}
+
+.suggested-list__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.suggested-list__list {
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  @include at-query($max, $small) {
+    display: flex;
+    overflow-x: scroll;
+  }
+
+  @include at-query($min, $small) {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  li {
+    @include at-query($max, $small) {
+      min-width: 140px;
+    }
+  }
+}
