@@ -13,8 +13,8 @@ const SuggestedList = () => {
         <section className="suggested-list">
           <h3 className="suggested-list__title">Suggestion 4you</h3>
           <ul className="suggested-list__list">
-            {suggested.map((user, i) => (
-              <ItemUser user={user} key={`suggested-${i}`} />
+            {suggested.map((user) => (
+              <ItemUser user={user} key={user.id} />
             ))}
           </ul>
         </section>
