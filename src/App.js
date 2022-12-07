@@ -2,6 +2,7 @@ import "./styles/app.scss";
 
 import { useEffect } from "react";
 
+import Navbar from "./components/Navbar";
 import User from "./components/User";
 import InfoDropdown from "./components/InfoDropdown";
 
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="app">
+      <Navbar />
       <div className="app__header">
         <h1 className="app__title container">Find new users like you</h1>
       </div>
