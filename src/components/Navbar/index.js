@@ -1,6 +1,6 @@
 import "./index.scss";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useUsersContext } from "../../hooks/useUsersContext";
 
@@ -9,6 +9,10 @@ import FollowUnfollow from "../FollowUnfollow";
 const Navbar = () => {
   const { following } = useUsersContext();
   const [toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    if (following.length === 0) setToggle(false);
+  }, [following]);
 
   return (
     <nav className="navbar">
