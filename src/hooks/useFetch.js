@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { useUsersContext } from "./useUsersContext";
 
+const dateDiffYears = (start, end = new Date()) => {
+  const diffMili = Math.abs(Date.parse(start) - end);
+  const diffYears = Math.floor(diffMili / 31536000000);
+  return diffYears;
+};
+
 export const useFetch = () => {
   const [newFetch, setNewFetch] = useState(false);
   const { setUser, setError, setLoading } = useUsersContext();
@@ -11,7 +17,7 @@ export const useFetch = () => {
         title: "Personal info",
         items: [
           ["born at", json.date_of_birth],
-          ["age", json.date_of_birth],
+          ["age", dateDiffYears(json.date_of_birth)],
           ["gender", json.gender],
           ["job", `${json.employment.key_skill} at ${json.employment.title}`],
         ],
