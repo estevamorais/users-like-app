@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useUsersContext } from "./useUsersContext";
 
 const dateDiffYears = (start, end = new Date()) => {
@@ -8,7 +7,6 @@ const dateDiffYears = (start, end = new Date()) => {
 };
 
 export const useFetch = () => {
-  const [newFetch, setNewFetch] = useState(false);
   const { setUser, setError, setLoading } = useUsersContext();
 
   function handleGetInfo(json) {
@@ -36,29 +34,23 @@ export const useFetch = () => {
     ];
   }
 
-  useEffect(() => {
-    (async () => {
-      if (newFetch) {
-        setLoading(true);
+  const handleFetch = async () => {
+    setLoading(true);
 
-        try {
-          const response = await fetch(
-            `https://random-data-api.com/api/v2/users?size=1}`
-          );
-          const json = await response.json();
+    try {
+      const response = await fetch(
+        `https://random-data-api.com/api/v2/users?size=1}`
+      );
+      const json = await response.json();
 
-          setLoading(false);
+      setLoading(false);
 
-          json.info = handleGetInfo(json);
-          setUser(json);
-        } catch (err) {
-          setError("There was an error trying to load the data.");
-        }
+      json.info = handleGetInfo(json);
+      setUser(json);
+    } catch (err) {
+      setError("There was an error trying to load the data.");
+    }
+  };
 
-        setNewFetch(false);
-      }
-    })();
-  }, [newFetch, setUser, setError, setLoading]);
-
-  return { setNewFetch };
+  return { handleFetch };
 };

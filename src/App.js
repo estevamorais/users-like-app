@@ -1,6 +1,6 @@
 import "./styles/app.scss";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Navbar from "./components/Navbar";
 import User from "./components/User";
@@ -12,11 +12,19 @@ import SuggestedList from "./components/SuggestedList";
 
 function App() {
   const { user, loading, error } = useUsersContext();
-  const { setNewFetch } = useFetch();
+  const [newFetch, setNewFetch] = useState();
+  const { handleFetch } = useFetch();
 
   useEffect(() => {
     setNewFetch(true);
-  }, [setNewFetch]);
+  }, []);
+
+  useEffect(() => {
+    if (newFetch) {
+      handleFetch();
+      setNewFetch(false);
+    }
+  }, [newFetch, handleFetch, setNewFetch]);
 
   return (
     <div className="app">
