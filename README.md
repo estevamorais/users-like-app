@@ -8,6 +8,8 @@ Aplicação client-side, que roda de forma consistente nos navegadores mais rece
 
 #### API utilizada: https://random-data-api.com
 
+![desktop-view](https://repository-images.githubusercontent.com/571342187/2b8478a5-987d-4833-9550-2de27f13c581)
+
 ## Features
 
 - Comunicação com API
